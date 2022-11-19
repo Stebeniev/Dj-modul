@@ -1,0 +1,28 @@
+{% load static %}
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+    <h1>Hello, {{ user.username|default:'Guest' }}</h1>
+    <h5>your cash: {{ user.cash }}</h5>
+    <div id="subheader">
+        <div class="cart" style="height: 15px; width: 90px; margin: 0 1150px;
+    text-decoration: black underline">Cart is empty
+        </div>
+    </div>
+    <div class="logout" style="height: 15px; width: 90px; margin: 0 1150px">
+        <h4><a href="{% url 'logout' %}">Logout</a></h4>
+    </div>
+
+
+    {% for product in site_product %}
+        <h3>{{ product.name }}</h3>
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}
+    {% static 'img/no image.png' %}{% endif %}" alt="Just image">
+        <h4>price {{ product.price }}</h4>
+        <button type="submit" formaction="#">Buy</button>
+{#        <input type="submit" value="Buy" style="width: 60px; color: blue">#}
+</form>
+    {% endfor %}
+{% endblock %}
+
+
