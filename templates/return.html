@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+    <div class="content" style="background: aqua; width: 600px;
+     padding: 5px 15px; height: 400px; margin: 100px auto">
+        <h1>Return</h1>
+{% for return in object_list %}
+
+
+         <form method="post" action="{% url 'add_return' %}">
+            {% csrf_token %}
+            {{ form }}
+             <input type="submit" value="Enter" style="width: 75px">
+         </form>
+
+    {% endfor %} }}
+{% endblock %}

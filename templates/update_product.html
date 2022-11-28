@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="content" style="background: aqua; width: 600px;
+     padding: 5px 15px; height: 400px; margin: 100px auto">
+</div>
+    <h1>Update Product</h1>
+<div>
+    <form method="post" action="{% url 'update_product' object.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Edit">
+    </form>
+</div>
+    <br>
+     <a href="{% url 'home' %}">Back to Home page</a>
+
+{% endblock %}
