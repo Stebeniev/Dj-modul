@@ -1,16 +1,12 @@
-{#{% extends 'home.html' %}#}
+{% extends 'home.html' %}
 {% block content %}
-    <div class="content" style="background: aqua; width: 600px;
-     padding: 5px 15px; height: 400px; margin: 100px auto">
-<h1>Register</h1>
-
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Save" style="width: 75px" >
-</form>
-
-<a href="{% url 'login' %}">Back to login</a>
-<a href="{% url 'home' %}">Back to Home page</a>
-    </div>
+    <h2>Register, please</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Register">
+    </form>
+    <br>
+    <a href="{% url 'login' %}">Back to login</a>
+    <a href="{% url 'home' %}">Back to Home page</a>
 {% endblock %}

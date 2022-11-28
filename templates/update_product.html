@@ -1,18 +1,17 @@
+{% extends 'main.html' %}
 {% block content %}
 <div class="content" style="background: aqua; width: 600px;
      padding: 5px 15px; height: 400px; margin: 100px auto">
+</div>
     <h1>Update Product</h1>
-    <form method="post">
+<div>
+    <form method="post" action="{% url 'update_product' object.id %}">
         {% csrf_token %}
-        <table>
-            {{ form.as_p }}
-            <tr>
-                <td><input type="submit" value="Update" style="width: 75px"></td>
-            </tr>
-        </table>
-        <br>
-
-        <a href="{% url 'home' %}">Back to Home page</a>
+        {{ form.as_p }}
+        <input type="submit" value="Edit">
     </form>
 </div>
+    <br>
+     <a href="{% url 'home' %}">Back to Home page</a>
+
 {% endblock %}

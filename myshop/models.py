@@ -46,7 +46,8 @@ class Purchase(models.Model):
 
 
 class Return(models.Model):
-    delete_id = models.ForeignKey(Purchase, on_delete=models.CASCADE)
+    delete_id = models.OneToOneField(Purchase, on_delete=models.CASCADE)
+    # delete_id = models.ForeignKey(Purchase, on_delete=models.CASCADE)
     created = models.DateTimeField(default=timezone.now)
     # created = models.DateTimeField(auto_now_add=True)
 
